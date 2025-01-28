@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR Web App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>OCR Web App</h1>
+        <label for="language">Selecciona un idioma:</label>
+        <select id="language">
+            <option value="eng">Inglés</option>
+            <option value="jpn">Japonés</option>
+        </select>
+        <button id="paste-button">Pegar imagen del portapapeles</button>
+        <div id="image-preview"></div>
+        <div id="output"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.0.2/dist/tesseract.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
