@@ -1,7 +1,38 @@
 const languageSelect = document.getElementById("language");
 const pasteButton = document.getElementById("paste-button");
+const themeToggle = document.getElementById("theme-toggle"); // Ahora es el ícono
 const imagePreview = document.getElementById("image-preview");
 const outputDiv = document.getElementById("output");
+
+// Función para cambiar el tema
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    if (currentTheme === "dark") {
+        document.documentElement.setAttribute("data-theme", "light");
+        themeToggle.classList.remove("fa-sun"); // Quita el ícono de sol
+        themeToggle.classList.add("fa-moon"); // Agrega el ícono de luna
+    } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+        themeToggle.classList.remove("fa-moon"); // Quita el ícono de luna
+        themeToggle.classList.add("fa-sun"); // Agrega el ícono de sol
+    }
+}
+
+// Detectar el tema del sistema
+const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+document.documentElement.setAttribute("data-theme", systemTheme);
+
+// Cambiar el ícono según el tema inicial
+if (systemTheme === "dark") {
+    themeToggle.classList.remove("fa-moon");
+    themeToggle.classList.add("fa-sun"); // Modo oscuro: mostrar sol
+} else {
+    themeToggle.classList.remove("fa-sun");
+    themeToggle.classList.add("fa-moon"); // Modo claro: mostrar luna
+}
+
+// Escuchar el clic en el ícono de cambio de tema
+themeToggle.addEventListener("click", toggleTheme);
 
 // Función para procesar la imagen con Tesseract.js
 async function processImage(imageFile, language) {

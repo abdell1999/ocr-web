@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OCR Web App</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Agregar FontAwesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <h1>OCR Web App</h1>
+        <h1>
+            OCR Web App
+            <i id="theme-toggle" class="fas fa-moon"></i> <!-- Ícono de luna (modo oscuro) -->
+        </h1>
         <label for="language">Selecciona un idioma:</label>
         <select id="language">
+            <option value="spa">Español</option>
             <option value="eng">Inglés</option>
             <option value="jpn">Japonés</option>
         </select>
